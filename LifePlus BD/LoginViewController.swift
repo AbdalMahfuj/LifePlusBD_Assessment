@@ -23,10 +23,7 @@ class LoginViewController: UIViewController {
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
-    }
-
+  
 
 
     @IBAction func registerPressed(_ sender: UIButton) {

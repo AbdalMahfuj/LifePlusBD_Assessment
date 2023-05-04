@@ -43,9 +43,7 @@ class SplashViewController: UIViewController {
     
     
     private func gotoLanding(){
-        let board = UIStoryboard(name: "Main", bundle: nil)
-        let vc = board.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
