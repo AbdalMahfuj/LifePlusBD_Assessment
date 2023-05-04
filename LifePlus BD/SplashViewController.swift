@@ -15,12 +15,30 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         
         splashLabel.text = ""
-        printStringWithDelay(string: "⚡️Hey! Welcome To Our System.")
+        printStringWithDelay(string: "⚡️Hey! Welcome To LifePlus BD.")
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
 //                // Perform segue to SecondViewController
 //                self.performSegue(withIdentifier: "SplashToRegVC", sender: self)
 //        }
+        
+        
+        /*
+        var users = DBManager.shared.getAllUsers()
+        print("count -1 \(users.count)")
+        
+        let inserted = DBManager.shared.insertUser(name: "x", userName: "u-x", phone: "1", password: "")
+        print("inserted \(inserted)")
+
+        users = DBManager.shared.getAllUsers()
+        print("count -2 \(users.count)")
+        
+        let updated = DBManager.shared.updateUser(name: "x2", userName: "u-x", phone: "11", password: "")
+        print("updated \(updated)")
+
+        users = DBManager.shared.getAllUsers()
+        print("count -2 \(users.count)")
+        */
     }
     
   
@@ -28,7 +46,7 @@ class SplashViewController: UIViewController {
     private func printStringWithDelay(string: String) {
         var index = string.startIndex
       
-        Timer.scheduledTimer(withTimeInterval: 0.15, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 0.12, repeats: true) { (timer) in
             self.splashLabel.text?.append(string[index])
 
             index = string.index(after: index)

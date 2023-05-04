@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C1138CC22A0445F2000CF51D /* LP DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1138CC02A0445F2000CF51D /* LP DB.xcdatamodeld */; };
+		C1138CC52A045AA0000CF51D /* LP DB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1138CC32A045AA0000CF51D /* LP DB.xcdatamodeld */; };
+		C1138CC82A045B6B000CF51D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1138CC62A045B6B000CF51D /* User+CoreDataClass.swift */; };
+		C1138CC92A045B6B000CF51D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1138CC72A045B6B000CF51D /* User+CoreDataProperties.swift */; };
+		C1138CCB2A045BCA000CF51D /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1138CCA2A045BCA000CF51D /* DBManager.swift */; };
 		C15348802A03A1FF00FBECBB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153487F2A03A1FF00FBECBB /* LoginViewController.swift */; };
 		C15348822A043DAE00FBECBB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15348812A043DAE00FBECBB /* SignupViewController.swift */; };
 		C1E201482A02CC6500247283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E201472A02CC6500247283 /* AppDelegate.swift */; };
@@ -20,7 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C1138CC12A0445F2000CF51D /* LifePlusBD_Assessment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LifePlusBD_Assessment.xcdatamodel; sourceTree = "<group>"; };
+		C1138CC42A045AA0000CF51D /* LP DB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "LP DB.xcdatamodel"; sourceTree = "<group>"; };
+		C1138CC62A045B6B000CF51D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C1138CC72A045B6B000CF51D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C1138CCA2A045BCA000CF51D /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C153487F2A03A1FF00FBECBB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C15348812A043DAE00FBECBB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C1E201442A02CC6500247283 /* LifePlus BD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LifePlus BD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +70,11 @@
 		C1E201462A02CC6500247283 /* LifePlus BD */ = {
 			isa = PBXGroup;
 			children = (
+				C1138CC62A045B6B000CF51D /* User+CoreDataClass.swift */,
+				C1138CC72A045B6B000CF51D /* User+CoreDataProperties.swift */,
 				C1E201472A02CC6500247283 /* AppDelegate.swift */,
+				C1138CCA2A045BCA000CF51D /* DBManager.swift */,
+				C1138CC32A045AA0000CF51D /* LP DB.xcdatamodeld */,
 				C1E201492A02CC6500247283 /* SceneDelegate.swift */,
 				C1E201612A02E5EB00247283 /* SplashViewController.swift */,
 				C1E2014B2A02CC6500247283 /* ViewController.swift */,
@@ -73,7 +83,6 @@
 				C1E2014D2A02CC6500247283 /* Main.storyboard */,
 				C1E201532A02CC6900247283 /* Assets.xcassets */,
 				C1E201552A02CC6900247283 /* LaunchScreen.storyboard */,
-				C1138CC02A0445F2000CF51D /* LP DB.xcdatamodeld */,
 				C1E201582A02CC6900247283 /* Info.plist */,
 			);
 			path = "LifePlus BD";
@@ -151,12 +160,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15348802A03A1FF00FBECBB /* LoginViewController.swift in Sources */,
+				C1138CC52A045AA0000CF51D /* LP DB.xcdatamodeld in Sources */,
 				C15348822A043DAE00FBECBB /* SignupViewController.swift in Sources */,
 				C1E2014C2A02CC6500247283 /* ViewController.swift in Sources */,
-				C1138CC22A0445F2000CF51D /* LP DB.xcdatamodeld in Sources */,
 				C1E201482A02CC6500247283 /* AppDelegate.swift in Sources */,
+				C1138CCB2A045BCA000CF51D /* DBManager.swift in Sources */,
 				C1E2014A2A02CC6500247283 /* SceneDelegate.swift in Sources */,
+				C1138CC82A045B6B000CF51D /* User+CoreDataClass.swift in Sources */,
 				C1E201622A02E5EB00247283 /* SplashViewController.swift in Sources */,
+				C1138CC92A045B6B000CF51D /* User+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,12 +388,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C1138CC02A0445F2000CF51D /* LP DB.xcdatamodeld */ = {
+		C1138CC32A045AA0000CF51D /* LP DB.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C1138CC12A0445F2000CF51D /* LifePlusBD_Assessment.xcdatamodel */,
+				C1138CC42A045AA0000CF51D /* LP DB.xcdatamodel */,
 			);
-			currentVersion = C1138CC12A0445F2000CF51D /* LifePlusBD_Assessment.xcdatamodel */;
+			currentVersion = C1138CC42A045AA0000CF51D /* LP DB.xcdatamodel */;
 			path = "LP DB.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
