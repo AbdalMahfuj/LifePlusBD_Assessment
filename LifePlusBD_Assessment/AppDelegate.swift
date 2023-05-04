@@ -15,16 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let board = UIStoryboard(name: "Main", bundle: nil)
-        let splashVC = board.instantiateViewController(withIdentifier: "SplashViewController")
-
-        let navVC = UINavigationController(rootViewController: splashVC)
-        //(UIApplication.shared.delegate as! AppDelegate).setRootVC(navVC)
-
-        window?.rootViewController = navVC
-
-        window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        let board = UIStoryboard(name: "Main", bundle: nil)
+//        let splashVC = board.instantiateViewController(withIdentifier: "SplashViewController")
+//
+//        let navVC = UINavigationController(rootViewController: splashVC)
+//        //(UIApplication.shared.delegate as! AppDelegate).setRootVC(navVC)
+//
+//        window?.rootViewController = navVC
+//
+//        window?.makeKeyAndVisible()
         return true
     }
 

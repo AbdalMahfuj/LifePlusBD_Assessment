@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C15348802A03A1FF00FBECBB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153487F2A03A1FF00FBECBB /* LoginViewController.swift */; };
+		C15348822A043DAE00FBECBB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15348812A043DAE00FBECBB /* SignupViewController.swift */; };
 		C1E201482A02CC6500247283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E201472A02CC6500247283 /* AppDelegate.swift */; };
 		C1E2014A2A02CC6500247283 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E201492A02CC6500247283 /* SceneDelegate.swift */; };
 		C1E2014C2A02CC6500247283 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E2014B2A02CC6500247283 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		C153487F2A03A1FF00FBECBB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C15348812A043DAE00FBECBB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C1E201442A02CC6500247283 /* LifePlusBD_Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifePlusBD_Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E201472A02CC6500247283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1E201492A02CC6500247283 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,12 +68,13 @@
 				C1E201492A02CC6500247283 /* SceneDelegate.swift */,
 				C1E201612A02E5EB00247283 /* SplashViewController.swift */,
 				C1E2014B2A02CC6500247283 /* ViewController.swift */,
+				C153487F2A03A1FF00FBECBB /* LoginViewController.swift */,
+				C15348812A043DAE00FBECBB /* SignupViewController.swift */,
 				C1E2014D2A02CC6500247283 /* Main.storyboard */,
 				C1E201532A02CC6900247283 /* Assets.xcassets */,
 				C1E201552A02CC6900247283 /* LaunchScreen.storyboard */,
 				C1E201582A02CC6900247283 /* Info.plist */,
 				C1E201502A02CC6500247283 /* LifePlusBD_Assessment.xcdatamodeld */,
-				C153487F2A03A1FF00FBECBB /* LoginViewController.swift */,
 			);
 			path = LifePlusBD_Assessment;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15348802A03A1FF00FBECBB /* LoginViewController.swift in Sources */,
+				C15348822A043DAE00FBECBB /* SignupViewController.swift in Sources */,
 				C1E2014C2A02CC6500247283 /* ViewController.swift in Sources */,
 				C1E201522A02CC6500247283 /* LifePlusBD_Assessment.xcdatamodeld in Sources */,
 				C1E201482A02CC6500247283 /* AppDelegate.swift in Sources */,

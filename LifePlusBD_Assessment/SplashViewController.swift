@@ -23,6 +23,7 @@ class SplashViewController: UIViewController {
 //        }
     }
     
+  
     
     private func printStringWithDelay(string: String) {
         var index = string.startIndex
