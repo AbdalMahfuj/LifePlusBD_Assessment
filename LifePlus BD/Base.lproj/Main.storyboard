@@ -387,10 +387,17 @@
                             <constraint firstItem="ezO-6h-Ozm" firstAttribute="trailing" secondItem="zna-ei-PWt" secondAttribute="trailing" id="w50-V9-jnd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Wfg-Os-ZqK" id="h5n-6m-lyU"/>
+                        <outlet property="detailImage" destination="Zm6-NB-FRY" id="LIf-zF-4h6"/>
+                        <outlet property="ratingLabel" destination="wRu-kb-c9p" id="yhw-gE-y7c"/>
+                        <outlet property="runtimeLabel" destination="DBa-Jo-Egg" id="Kwn-k2-QzB"/>
+                        <outlet property="titleLabel" destination="VAV-xV-WEO" id="c0m-3M-NKg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30t-bT-laO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4451.1450381679388" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="4764" y="-42"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="3xQ-TI-Cp6">
@@ -413,7 +420,7 @@
                                                     <constraint firstAttribute="height" constant="130" id="QqJ-oZ-zJa"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-8V-B1q" userLabel="PasswordText Field">
+                                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-8V-B1q" userLabel="PasswordText Field">
                                                 <rect key="frame" x="10" y="340" width="373" height="50"/>
                                                 <color key="backgroundColor" red="0.92943942670000002" green="0.92943942670000002" blue="0.92943942670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>

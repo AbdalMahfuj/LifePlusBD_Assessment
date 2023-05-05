@@ -20,11 +20,8 @@ class ContentTableViewCell: UITableViewCell {
     }
     
     func setUI(tvshow: TVShow) {
-      //  tvshowLabel.text = tvshow.details?.name
-        
         if let urlString = tvshow.imageURL, let url = URL(string: urlString) {
             tvshowImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"), context: nil)
-
         } else {
             tvshowImage.image = UIImage(named: "placeholder")
         }

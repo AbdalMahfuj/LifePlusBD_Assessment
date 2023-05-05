@@ -7,10 +7,8 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
+class DashboardViewController: UIViewController {
     
-    
-
     @IBOutlet weak var tvshowTableView: UITableView!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var tvSearchbar: UISearchBar!
@@ -36,7 +34,6 @@ class DashboardViewController: UIViewController, UISearchBarDelegate, UITableVie
     }
    
 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
@@ -47,42 +44,20 @@ class DashboardViewController: UIViewController, UISearchBarDelegate, UITableVie
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fetchPhoto(with: "flower")
+        fetchTVShow(with: "flower")
     }
  
-   
     
     @IBAction func viewProfilePressed(_ sender: UIButton) {
-        
         let vc = ProfileViewController.initVC(user: user!)
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        clear()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
 
-        if let text = searchBar.text, text.count > 0 {
-            clear()
-            fetchPhoto(with: text)
-        }
-        else {
-            clear()
-        }
-    }
-    
-    func clear() {
-        results = []
-        tvshowTableView.reloadData()
-    }
-    
-    
-    private func fetchPhoto(with query: String) {
+}
+
+
+extension DashboardViewController { // API maintaince
+    private func fetchTVShow(with query: String) {
 //        let urlString = "https://api.tvmaze.com/singlesearch/shows?q=\(query)"
         let urlString = "https://api.tvmaze.com/search/shows?q=\(query)"
         
@@ -106,8 +81,34 @@ class DashboardViewController: UIViewController, UISearchBarDelegate, UITableVie
             }
         }
     }
+}
+
+extension DashboardViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        clear()
+    }
     
-  
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+
+        if let text = searchBar.text, text.count > 0 {
+            clear()
+            fetchTVShow(with: text)
+        }
+        else {
+            clear()
+        }
+    }
+    
+    func clear() {
+        results = []
+        tvshowTableView.reloadData()
+    }
+}
+
+
+extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
@@ -116,5 +117,10 @@ class DashboardViewController: UIViewController, UISearchBarDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContentTableViewCell
         cell.setUI(tvshow: results[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailShowVC = DetailShowViewController.initVC(result: results[indexPath.row])
+        self.navigationController?.pushViewController(detailShowVC, animated: true)
     }
 }

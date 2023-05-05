@@ -26,16 +26,16 @@ struct TVShow: Codable {
     
     enum CodingKeys: String, CodingKey {
       case score
-        case details = "show"
+      case details = "show"
     }
 }
 
 struct TVShowDetails: Codable {
     let name: String?
-//    let type: String?
-//    let language: String?
+    let type: String?
+    let language: String?
 //    let genres: [String]?
-//    let rating: Rating?
+    let rating: Rating?
     let image: Image?
   
     var imageURL: String? {
