@@ -115,7 +115,6 @@ class DashboardViewController: UIViewController, UISearchBarDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContentTableViewCell
         cell.setUI(tvshow: results[indexPath.row])
-        cell.backgroundColor = .red
         return cell
     }
 }

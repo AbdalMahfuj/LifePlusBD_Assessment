@@ -15,10 +15,12 @@ class ContentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        tvshowImage.layer.cornerRadius = 8.0
+        tvshowImage.clipsToBounds = true
     }
     
     func setUI(tvshow: TVShow) {
-        tvshowLabel.text = tvshow.details?.name
+      //  tvshowLabel.text = tvshow.details?.name
         
         if let urlString = tvshow.imageURL, let url = URL(string: urlString) {
             tvshowImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"), context: nil)
