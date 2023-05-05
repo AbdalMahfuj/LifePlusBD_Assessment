@@ -14,17 +14,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        let board = UIStoryboard(name: "Main", bundle: nil)
-//        let splashVC = board.instantiateViewController(withIdentifier: "SplashViewController")
-//
-//        let navVC = UINavigationController(rootViewController: splashVC)
-//        //(UIApplication.shared.delegate as! AppDelegate).setRootVC(navVC)
-//
-//        window?.rootViewController = navVC
-//
-//        window?.makeKeyAndVisible()
+
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor.red
+        navigationBarAppearace.isTranslucent = false
+
+                
+                if #available(iOS 13, *) {
+                    let appearance = UINavigationBarAppearance()
+
+                    appearance.configureWithOpaqueBackground()
+                    appearance.backgroundColor = UIColor.systemBlue
+                    appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+                    navigationBarAppearace.standardAppearance = appearance
+                    navigationBarAppearace.compactAppearance = appearance
+                    navigationBarAppearace.scrollEdgeAppearance = appearance
+                }
+        
+        
         return true
     }
 

@@ -17,8 +17,13 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "Sign Up"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
     
     @IBAction func registerPressed(_ sender: UIButton) {
         guard let name = nameTF.text, let username = userNameTF.text, let phone = phoneTF.text, let password = passwordTF.text else {
@@ -34,6 +39,7 @@ class SignupViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {

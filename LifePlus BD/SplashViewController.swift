@@ -13,35 +13,15 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "hrllo"
         splashLabel.text = ""
         printStringWithDelay(string: "⚡️Hey! Welcome To LifePlus BD.")
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//                // Perform segue to SecondViewController
-//                self.performSegue(withIdentifier: "SplashToRegVC", sender: self)
-//        }
-        
-        
-        /*
-        var users = DBManager.shared.getAllUsers()
-        print("count -1 \(users.count)")
-        
-        let inserted = DBManager.shared.insertUser(name: "x", userName: "u-x", phone: "1", password: "")
-        print("inserted \(inserted)")
-
-        users = DBManager.shared.getAllUsers()
-        print("count -2 \(users.count)")
-        
-        let updated = DBManager.shared.updateUser(name: "x2", userName: "u-x", phone: "11", password: "")
-        print("updated \(updated)")
-
-        users = DBManager.shared.getAllUsers()
-        print("count -2 \(users.count)")
-        */
+   
     }
     
-  
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     
     private func printStringWithDelay(string: String) {
         var index = string.startIndex
@@ -54,15 +34,29 @@ class SplashViewController: UIViewController {
             if index == string.endIndex {
                 timer.invalidate()
                 self.gotoLanding()
-             //   self.performSegue(withIdentifier: "SplashToRegVC", sender: self)
             }
         }
     }
     
     
-    private func gotoLanding(){
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+    private func gotoLanding() {
+        if let username = UserDefaults.standard.string(forKey: "user_name") {
+            if let user = DBManager.shared.getUserBy(userName: username) {
+                print("logged in successfully")
+                let dashboardVC = DashboardViewController.initVC(user: user)
+                navigationController?.pushViewController(dashboardVC, animated: true)
+            } else {
+                gotoLogin()
+            }
+        } else {
+           gotoLogin()
+        }
+        
+        
+        func gotoLogin() {
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

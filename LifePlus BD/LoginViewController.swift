@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Login"
 
     }
     
@@ -30,11 +31,19 @@ class LoginViewController: UIViewController {
             print("enter correctly credentials!")
             return
         }
-        let user = DBManager.shared.getUserBy(userName: username)
-        if user?.userName == username, user?.password == password {
+        if username.isEmpty {
+            
+            return
+        }
+        if let user = DBManager.shared.getUserBy(userName: username, password: password) {
             print("logged in successfully")
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
-            navigationController?.pushViewController(vc, animated: true)
+            UserDefaults.standard.set(username, forKey: "user_name")
+            UserDefaults.standard.synchronize()
+           // let vc = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+            let dashboardVC = DashboardViewController.initVC(user: user)
+            navigationController?.pushViewController(dashboardVC, animated: true)
+        } else {
+            
         }
     }
     
