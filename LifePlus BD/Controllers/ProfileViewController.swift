@@ -32,32 +32,11 @@ class ProfileViewController: UIViewController {
         usernameLabel.text = "\(user?.userName ?? "Username not found")"
         phoneLabel.text = "\(user?.phone ?? "Phone not found")"
         
-        nameView.layer.borderWidth = 1
-        nameView.layer.borderColor = UIColor.systemGreen.cgColor
-        nameView.layer.cornerRadius = 5
-        
-        userNameView.layer.borderWidth = 1
-        userNameView.layer.borderColor = UIColor.systemGreen.cgColor
-        userNameView.layer.cornerRadius = 5
-        
-        phoneView.layer.borderWidth = 1
-        phoneView.layer.borderColor = UIColor.systemGreen.cgColor
-        phoneView.layer.cornerRadius = 5
-        
-        innerNameView.layer.borderWidth = 1
-        innerNameView.layer.borderColor = UIColor.systemGray2.cgColor
-        innerNameView.layer.cornerRadius = 10
-        
-        InnerPhoneView.layer.borderWidth = 1
-        InnerPhoneView.layer.borderColor = UIColor.systemGray2.cgColor
-        InnerPhoneView.layer.cornerRadius = 10
-        
-        InnerUsernameView.layer.borderWidth = 1
-        InnerUsernameView.layer.borderColor = UIColor.systemGray2.cgColor
-        InnerUsernameView.layer.cornerRadius = 10
+        designUIView(outView: nameView, innerView: innerNameView)
+        designUIView(outView: userNameView, innerView: InnerUsernameView)
+        designUIView(outView: phoneView, innerView: InnerPhoneView)
     }
     
-
     class func initVC(user: User)->ProfileViewController {
         let board = UIStoryboard(name: "Main", bundle: nil)
         let vc = board.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
@@ -65,4 +44,17 @@ class ProfileViewController: UIViewController {
         return vc
     }
 
+}
+
+
+extension ProfileViewController {
+    func designUIView(outView: UIView, innerView: UIView) {
+        outView.layer.borderWidth = 1
+        outView.layer.borderColor = UIColor.systemGreen.cgColor
+        outView.layer.cornerRadius = 5
+        
+        innerView.layer.borderWidth = 1
+        innerView.layer.borderColor = UIColor.systemGray2.cgColor
+        innerView.layer.cornerRadius = 10
+    }
 }
