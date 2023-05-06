@@ -28,33 +28,25 @@ class LoginViewController: UIViewController {
   
     @IBAction func loginPressed(_ sender: UIButton) {
         
-        guard let usernameEntered = userNameTF.text, !usernameEntered.isEmpty else {
-            openAlert(message: "Please enter your username")
-            return
-        }
-        guard let passwordEntered = passwordTF.text, !passwordEntered.isEmpty else {
-            openAlert(message: "Please enter your password")
+        guard let username = userNameTF.text, !username.isEmpty else {
+            showAlert(title: "Caution", message: "Please enter your username")
             return
         }
         
+        guard let password = passwordTF.text, !password.isEmpty else {
+            showAlert(title: "Caution", message: "Please enter your password")
+            return
+        }
         
-        guard let username = userNameTF.text, let password = passwordTF.text else {
-            print("enter correctly credentials!")
-            return
-        }
-        if username.isEmpty {
-            
-            return
-        }
+
         if let user = DBManager.shared.getUserBy(userName: username, password: password) {
             print("logged in successfully")
             UserDefaults.standard.set(username, forKey: "user_name")
             UserDefaults.standard.synchronize()
-           // let vc = self.storyboard?.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
             let dashboardVC = DashboardViewController.initVC(user: user)
             navigationController?.pushViewController(dashboardVC, animated: true)
         } else {
-            openAlert(message: "Enter credential correctly!")
+            showAlert(title: "Login Failed", message: "Enter credential correctly!")
         }
     }
     
@@ -68,18 +60,3 @@ class LoginViewController: UIViewController {
 }
 
 
-extension LoginViewController {
-    func openAlert(message: String){
-        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okay)
-        present(alertController, animated: true)
-    }
-    
-    func showAlert() {
-        let alertController = UIAlertController(title: nil, message: "User added", preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okay)
-        present(alertController, animated: true)
-    }
-}

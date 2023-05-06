@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SVProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,19 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationBarAppearace.scrollEdgeAppearance = appearance
         }
         
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//
-//        let board = UIStoryboard(name: "Main", bundle: nil)
-//        let splashVC = board.instantiateViewController(withIdentifier: "SplashViewController")
-//
-//        let navVC = UINavigationController(rootViewController: splashVC)
-//        //(UIApplication.shared.delegate as! AppDelegate).setRootVC(navVC)
-//
-//        window?.rootViewController = navVC
-//
-//        window?.makeKeyAndVisible()
-//
+        SVProgressHUD.setForegroundColor(.systemBlue)
+        
         return true
+    }
+    
+    
+    func setRootVC(_ vc: UIViewController){
+        window?.rootViewController = vc
     }
     
     // MARK: UISceneSession Lifecycle

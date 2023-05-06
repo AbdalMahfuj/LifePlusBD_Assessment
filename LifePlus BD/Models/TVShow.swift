@@ -37,6 +37,7 @@ struct TVShowDetails: Codable {
 //    let genres: [String]?
     let rating: Rating?
     let runtime: Float?
+    let summary: String?
     let image: Image?
   
     var imageURL: String? {

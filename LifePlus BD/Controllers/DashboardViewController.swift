@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class DashboardViewController: UIViewController {
     
     @IBOutlet weak var tvshowTableView: UITableView!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var tvSearchbar: UISearchBar!
-   
+    
     var user: User?
     var results: [TVShow] = []
     
@@ -31,8 +32,8 @@ class DashboardViewController: UIViewController {
         self.navigationItem.title = "Dashboard"
         self.profileButton.setTitle(self.user?.userName, for: .normal)
     }
-   
-
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
@@ -45,7 +46,7 @@ class DashboardViewController: UIViewController {
         
         fetchTVShow(with: "flower")
     }
- 
+    
     
     @IBAction func viewProfilePressed(_ sender: UIButton) {
         let vc = ProfileViewController.initVC(user: user!)
@@ -54,42 +55,47 @@ class DashboardViewController: UIViewController {
     
     
     @IBAction func logoutPressed(_ sender: UIButton) {
-        UserDefaults.standard.removeObject(forKey: "user_name")
-        gotoLogin()
+        showConfirmAlert(title: "Confirmation", message: "Are you sure, you want to logout?", button: "Logout") {
+            UserDefaults.standard.removeObject(forKey: "user_name")
+            UserDefaults.standard.synchronize()
+            self.gotoLogin()
+        }
     }
-    
 }
 
 extension DashboardViewController {
     func gotoLogin() {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        let navVC = UINavigationController(rootViewController: vc)
+        (UIApplication.shared.delegate as! AppDelegate).setRootVC(navVC)
     }
 }
 
 
 extension DashboardViewController { // API maintaince
     private func fetchTVShow(with query: String) {
-//        let urlString = "https://api.tvmaze.com/singlesearch/shows?q=\(query)"
+        SVProgressHUD.show()
         let urlString = "https://api.tvmaze.com/search/shows?q=\(query)"
         
         APIManager.shared.callService(urlString: urlString, method: "GET", body: nil) { [weak self] data in
-            guard let weakSelf = self else {
-                return
-            }
-            if let data = data {
-                do {
-                    weakSelf.results  = try JSONDecoder().decode([TVShow].self, from: data)
-                    //                    weakSelf.results = [singleresule]
-                    DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                
+                guard let weakSelf = self else {
+                    return
+                }
+                if let data = data {
+                    do {
+                        weakSelf.results  = try JSONDecoder().decode([TVShow].self, from: data)
+                        //                    weakSelf.results = [singleresule]
                         weakSelf.tvshowTableView.reloadData()
                         print(weakSelf.results.count)
                     }
+                    catch {
+                        print(error)
+                    }
+                    print("task ok")
                 }
-                catch {
-                    print(error)
-                }
-                print("task ok")
             }
         }
     }

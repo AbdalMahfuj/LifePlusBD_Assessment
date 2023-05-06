@@ -23,8 +23,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fx-Q1-ibE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="591"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.and.background.dotted" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DUh-7z-70e">
-                                                <rect key="frame" x="107" y="40" width="200" height="120"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DUh-7z-70e">
+                                                <rect key="frame" x="107" y="41" width="200" height="117.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="LGc-vp-NYm"/>
                                                     <constraint firstAttribute="height" constant="120" id="RC0-lU-uut"/>
@@ -337,14 +337,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="q3y-L6-ZDW">
                                                 <rect key="frame" x="15" y="444" width="384" height="157"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAV-xV-WEO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAV-xV-WEO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-Os-ZqK">
-                                                        <rect key="frame" x="0.0" y="50.5" width="41.5" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-Os-ZqK">
+                                                        <rect key="frame" x="0.0" y="50.5" width="87.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -631,9 +631,9 @@
     </scenes>
     <resources>
         <image name="lifeplus_logo" width="101" height="72"/>
-        <image name="person.and.background.dotted" catalog="system" width="128" height="94"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.dashed" catalog="system" width="128" height="123"/>
+        <image name="person.crop.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

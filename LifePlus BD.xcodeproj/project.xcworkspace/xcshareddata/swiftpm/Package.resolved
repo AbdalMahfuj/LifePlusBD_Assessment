@@ -9,6 +9,15 @@
           "revision": "2c8ed9a2f3ad537dbe9e58e2ec18be361da112aa",
           "version": "5.9.5"
         }
+      },
+      {
+        "package": "SVProgressHUD",
+        "repositoryURL": "https://github.com/littleigloo/SVProgressHUD.git",
+        "state": {
+          "branch": null,
+          "revision": "3580cb55f351d83f861f52362aa38305f663f88d",
+          "version": "1.0.0"
+        }
       }
     ]
   },

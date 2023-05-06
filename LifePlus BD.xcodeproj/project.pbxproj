@@ -23,6 +23,8 @@
 		846D71EE2A062CCF00E6C7A0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D71E52A062CCF00E6C7A0 /* ProfileViewController.swift */; };
 		846D71F82A062D6600E6C7A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846D71F62A062D6600E6C7A0 /* LaunchScreen.storyboard */; };
 		846D71F92A062D6600E6C7A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846D71F72A062D6600E6C7A0 /* Main.storyboard */; };
+		846D72012A063BB900E6C7A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D72002A063BB900E6C7A0 /* Extensions.swift */; };
+		846D72062A06410300E6C7A0 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 846D72052A06410300E6C7A0 /* SVProgressHUD */; };
 		C1CF79F42A0577EE00824C44 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C1CF79F32A0577EE00824C44 /* SDWebImage */; };
 		C1E201482A02CC6500247283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E201472A02CC6500247283 /* AppDelegate.swift */; };
 		C1E201542A02CC6900247283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E201532A02CC6900247283 /* Assets.xcassets */; };
@@ -45,6 +47,7 @@
 		846D71E52A062CCF00E6C7A0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		846D71F62A062D6600E6C7A0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846D71F72A062D6600E6C7A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		846D72002A063BB900E6C7A0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C1E201442A02CC6500247283 /* LifePlus BD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LifePlus BD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E201472A02CC6500247283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1E201532A02CC6900247283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846D72062A06410300E6C7A0 /* SVProgressHUD in Frameworks */,
 				C1CF79F42A0577EE00824C44 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +118,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		846D71FF2A063BA400E6C7A0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				846D72002A063BB900E6C7A0 /* Extensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		C1E2013B2A02CC6500247283 = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +151,9 @@
 				846D71D72A062C9D00E6C7A0 /* Models */,
 				846D71DC2A062CCF00E6C7A0 /* Controllers */,
 				846D71F52A062D6600E6C7A0 /* Storyboards */,
-				C1E201582A02CC6900247283 /* Info.plist */,
+				846D71FF2A063BA400E6C7A0 /* Utility */,
 				C1E201532A02CC6900247283 /* Assets.xcassets */,
+				C1E201582A02CC6900247283 /* Info.plist */,
 			);
 			path = "LifePlus BD";
 			sourceTree = "<group>";
@@ -163,6 +176,7 @@
 			name = "LifePlus BD";
 			packageProductDependencies = (
 				C1CF79F32A0577EE00824C44 /* SDWebImage */,
+				846D72052A06410300E6C7A0 /* SVProgressHUD */,
 			);
 			productName = LifePlusBD_Assessment;
 			productReference = C1E201442A02CC6500247283 /* LifePlus BD.app */;
@@ -194,6 +208,7 @@
 			mainGroup = C1E2013B2A02CC6500247283;
 			packageReferences = (
 				C1CF79F22A0577EE00824C44 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				846D72042A06410300E6C7A0 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
 			);
 			productRefGroup = C1E201452A02CC6500247283 /* Products */;
 			projectDirPath = "";
@@ -233,6 +248,7 @@
 				846D71EE2A062CCF00E6C7A0 /* ProfileViewController.swift in Sources */,
 				846D71E62A062CCF00E6C7A0 /* SignupViewController.swift in Sources */,
 				846D71D42A062C7B00E6C7A0 /* DBManager.swift in Sources */,
+				846D72012A063BB900E6C7A0 /* Extensions.swift in Sources */,
 				846D71C82A062C3600E6C7A0 /* LP DB.xcdatamodeld in Sources */,
 				846D71C92A062C3600E6C7A0 /* User+CoreDataProperties.swift in Sources */,
 				846D71CA2A062C3600E6C7A0 /* User+CoreDataClass.swift in Sources */,
@@ -371,7 +387,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,7 +415,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,6 +453,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		846D72042A06410300E6C7A0 /* XCRemoteSwiftPackageReference "SVProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/littleigloo/SVProgressHUD.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		C1CF79F22A0577EE00824C44 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -448,6 +472,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		846D72052A06410300E6C7A0 /* SVProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 846D72042A06410300E6C7A0 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
+			productName = SVProgressHUD;
+		};
 		C1CF79F32A0577EE00824C44 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C1CF79F22A0577EE00824C44 /* XCRemoteSwiftPackageReference "SDWebImage" */;
