@@ -7,6 +7,7 @@
 
 import UIKit
 
+//
 class SplashViewController: UIViewController {
 
     @IBOutlet weak var splashLabel: UILabel!
