@@ -11,18 +11,18 @@ class ProfileViewController: UIViewController {
 
     var user: User?
     
-        
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    
-    @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var nameView: UIView!
+    @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var phoneView: UIView!
     
     @IBOutlet weak var innerNameView: UIView!
-    @IBOutlet weak var InnerPhoneView: UIView!
-    @IBOutlet weak var InnerUsernameView: UIView!
+    @IBOutlet weak var innerUsernameView: UIView!
+    @IBOutlet weak var innerPhoneView: UIView!
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -33,8 +33,8 @@ class ProfileViewController: UIViewController {
         phoneLabel.text = "\(user?.phone ?? "Phone not found")"
         
         designUIView(outView: nameView, innerView: innerNameView)
-        designUIView(outView: userNameView, innerView: InnerUsernameView)
-        designUIView(outView: phoneView, innerView: InnerPhoneView)
+        designUIView(outView: userNameView, innerView: innerUsernameView)
+        designUIView(outView: phoneView, innerView: innerPhoneView)
     }
     
     class func initVC(user: User)->ProfileViewController {
