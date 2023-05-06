@@ -12,10 +12,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var logoImageview: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Login"
+        logoImageview.layer.cornerRadius = 20
+
 
     }
     

@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import SVProgressHUD
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         SVProgressHUD.setForegroundColor(.systemBlue)
+        IQKeyboardManager.shared.enable = true
         
         return true
     }

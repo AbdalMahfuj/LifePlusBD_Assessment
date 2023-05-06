@@ -13,7 +13,7 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "hrllo"
+        self.navigationItem.title = "hello"
         splashLabel.text = ""
         printStringWithDelay(string: "⚡️Hey! Welcome To LifePlus BD.")
    
@@ -26,7 +26,7 @@ class SplashViewController: UIViewController {
     private func printStringWithDelay(string: String) {
         var index = string.startIndex
       
-        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 0.10, repeats: true) { (timer) in
             self.splashLabel.text?.append(string[index])
 
             index = string.index(after: index)

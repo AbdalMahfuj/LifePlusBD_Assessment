@@ -15,6 +15,7 @@ class DetailShowViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
     
     var result:TVShow?
     
@@ -33,16 +34,14 @@ class DetailShowViewController: UIViewController {
     
     
     func setUI(tvshow: TVShow) {
-        titleLabel.text = tvshow.details?.name ?? ""
-        descriptionLabel.text = "\(tvshow.details?.summary ?? "N/A")"
-        ratingLabel.text = "\(tvshow.details?.rating?.average ?? 0.0)"
-        runtimeLabel.text = tvshow.details?.language
+        titleLabel.text = "Title: \(tvshow.details?.name ?? "N/A")"
+        ratingLabel.text = "Rating: \(tvshow.details?.rating?.average ?? 0.0)"
+        runtimeLabel.text = "Runtime: \(tvshow.details?.runtime ?? 0.0)"
+        languageLabel.text = "Language: \(tvshow.details?.language ?? "N/A")"
         
-        descriptionLabel.text = "N/A"
-
         if let desc = tvshow.details?.summary, desc.count > 0 {
             if let attributedString = try? NSAttributedString(data: Data(desc.utf8), options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
-                descriptionLabel.text = attributedString.string
+                descriptionLabel.text = "Summary: \(attributedString.string)"
             }
         }
        
