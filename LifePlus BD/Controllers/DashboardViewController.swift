@@ -12,6 +12,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var tvshowTableView: UITableView!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var tvSearchbar: UISearchBar!
+   
     var user: User?
     var results: [TVShow] = []
     
@@ -25,9 +26,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tvshowTableView.register(UINib(nibName: "ContentTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        tvshowTableView.delegate = self
-        tvshowTableView.dataSource = self
+        tvshowTableView.register(UINib(nibName: "ContentTableViewCell", bundle: nil), forCellReuseIdentifier: "ContentTableViewCell")
         tvSearchbar.delegate = self
         self.navigationItem.title = "Dashboard"
         self.profileButton.setTitle(self.user?.userName, for: .normal)
@@ -52,7 +51,20 @@ class DashboardViewController: UIViewController {
         let vc = ProfileViewController.initVC(user: user!)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    @IBAction func logoutPressed(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "user_name")
+        gotoLogin()
+    }
+    
+}
 
+extension DashboardViewController {
+    func gotoLogin() {
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 
@@ -114,12 +126,14 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell", for: indexPath) as! ContentTableViewCell
         cell.setUI(tvshow: results[indexPath.row])
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let detailShowVC = DetailShowViewController.initVC(result: results[indexPath.row])
         self.navigationController?.pushViewController(detailShowVC, animated: true)
     }

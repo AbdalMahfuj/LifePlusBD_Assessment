@@ -50,13 +50,11 @@ class SplashViewController: UIViewController {
             }
         } else {
            gotoLogin()
-        }
-        
-        
-        func gotoLogin() {
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        }   
+    }
+    func gotoLogin() {
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -34,10 +34,11 @@ class DetailShowViewController: UIViewController {
     
     func setUI(tvshow: TVShow) {
       //  tvshowLabel.text = tvshow.details?.name
-        titleLabel.text = tvshow.details?.name
+        titleLabel.text = "\n\n\n\n\n\n\n\n\n\n\n\n\n" + (tvshow.details?.name ?? "")
         descriptionLabel.text = tvshow.details?.type
         ratingLabel.text = "\(tvshow.details?.rating?.average ?? 0.0)"
         runtimeLabel.text = tvshow.details?.language
+     
         if let urlString = tvshow.imageURL, let url = URL(string: urlString) {
             detailImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"), context: nil)
         } else {

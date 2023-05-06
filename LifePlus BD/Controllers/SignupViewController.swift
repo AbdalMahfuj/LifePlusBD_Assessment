@@ -26,6 +26,25 @@ class SignupViewController: UIViewController {
 
     
     @IBAction func registerPressed(_ sender: UIButton) {
+        
+        guard let usernameEntered = userNameTF.text, !usernameEntered.isEmpty else {
+            openAlert(message: "Please enter your username")
+            return
+        }
+        guard let nameEntered = nameTF.text, !nameEntered.isEmpty else {
+            openAlert(message: "Please enter your name")
+            return
+        }
+        guard let phoneEntered = phoneTF.text, !phoneEntered.isEmpty else {
+            openAlert(message: "Please enter your phone")
+            return
+        }
+
+        guard let passwordEntered = passwordTF.text, !passwordEntered.isEmpty else {
+            openAlert(message: "Please enter your password")
+            return
+        }
+        
         guard let name = nameTF.text, let username = userNameTF.text, let phone = phoneTF.text, let password = passwordTF.text else {
             print("Enter all fields")
             return
@@ -44,5 +63,22 @@ class SignupViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+
+extension SignupViewController {
+    func openAlert(message: String){
+        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okay)
+        present(alertController, animated: true)
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: nil, message: "User added", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okay)
+        present(alertController, animated: true)
     }
 }

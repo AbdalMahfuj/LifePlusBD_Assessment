@@ -1,14 +1,16 @@
 {
-  "pins" : [
-    {
-      "identity" : "sdwebimage",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SDWebImage/SDWebImage.git",
-      "state" : {
-        "revision" : "2c8ed9a2f3ad537dbe9e58e2ec18be361da112aa",
-        "version" : "5.9.5"
+  "object": {
+    "pins": [
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "2c8ed9a2f3ad537dbe9e58e2ec18be361da112aa",
+          "version": "5.9.5"
+        }
       }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }

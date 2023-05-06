@@ -27,6 +27,17 @@ class LoginViewController: UIViewController {
     
   
     @IBAction func loginPressed(_ sender: UIButton) {
+        
+        guard let usernameEntered = userNameTF.text, !usernameEntered.isEmpty else {
+            openAlert(message: "Please enter your username")
+            return
+        }
+        guard let passwordEntered = passwordTF.text, !passwordEntered.isEmpty else {
+            openAlert(message: "Please enter your password")
+            return
+        }
+        
+        
         guard let username = userNameTF.text, let password = passwordTF.text else {
             print("enter correctly credentials!")
             return
@@ -43,7 +54,7 @@ class LoginViewController: UIViewController {
             let dashboardVC = DashboardViewController.initVC(user: user)
             navigationController?.pushViewController(dashboardVC, animated: true)
         } else {
-            
+            openAlert(message: "Enter credential correctly!")
         }
     }
     
@@ -53,5 +64,22 @@ class LoginViewController: UIViewController {
         let vc = board.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
 
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+extension LoginViewController {
+    func openAlert(message: String){
+        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okay)
+        present(alertController, animated: true)
+    }
+    
+    func showAlert() {
+        let alertController = UIAlertController(title: nil, message: "User added", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okay)
+        present(alertController, animated: true)
     }
 }
