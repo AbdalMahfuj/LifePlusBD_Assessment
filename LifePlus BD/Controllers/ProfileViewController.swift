@@ -11,6 +11,7 @@ class ProfileViewController: UIViewController {
 
     var user: User?
     
+        
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
