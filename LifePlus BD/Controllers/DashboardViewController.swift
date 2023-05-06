@@ -24,8 +24,10 @@ class DashboardViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupUI()
+        tvSearchbar.searchTextField.text = "flower"
         fetchTVShow(with: "flower")
     }
         

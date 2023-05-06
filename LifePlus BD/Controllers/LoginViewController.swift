@@ -52,6 +52,7 @@ class LoginViewController: UIViewController {
             navigationController?.pushViewController(dashboardVC, animated: true)
         } else {
             showAlert(title: "Login Failed", message: "Enter credential correctly!")
+            SVProgressHUD.dismiss()
         }
     }
     
