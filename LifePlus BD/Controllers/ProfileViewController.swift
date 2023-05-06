@@ -28,9 +28,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = "Name: \(user?.name ?? "Name not found")"
-        usernameLabel.text = "Username: \(user?.userName ?? "Username not found")"
-        phoneLabel.text = "Phone: \(user?.phone ?? "Phone not found")"
+        nameLabel.text = "\(user?.name ?? "Name not found")"
+        usernameLabel.text = "\(user?.userName ?? "Username not found")"
+        phoneLabel.text = "\(user?.phone ?? "Phone not found")"
         
         nameView.layer.borderWidth = 1
         nameView.layer.borderColor = UIColor.systemGreen.cgColor
@@ -55,12 +55,6 @@ class ProfileViewController: UIViewController {
         InnerUsernameView.layer.borderWidth = 1
         InnerUsernameView.layer.borderColor = UIColor.systemGray2.cgColor
         InnerUsernameView.layer.cornerRadius = 10
-        
-        
-        
-        
-        
-        
     }
     
 
