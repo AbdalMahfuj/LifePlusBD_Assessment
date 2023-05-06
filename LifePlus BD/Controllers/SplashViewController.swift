@@ -22,7 +22,7 @@ class SplashViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
-    
+    ///
     private func printStringWithDelay(string: String) {
         var index = string.startIndex
       
