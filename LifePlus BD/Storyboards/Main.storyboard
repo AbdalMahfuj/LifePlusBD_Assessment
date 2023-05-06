@@ -268,7 +268,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="I5O-Tb-nUR">
                                 <rect key="frame" x="20" y="334" width="374" height="340"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzn-qh-cz2" userLabel="PhoneView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzn-qh-cz2" userLabel="NameView">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPV-0f-nzy">
@@ -280,7 +280,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqq-dV-eP3" userLabel="NameDetailView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqq-dV-eP3" userLabel="InnerNameDetailView">
                                                 <rect key="frame" x="29" y="41" width="331" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yeV-xV-41o">
@@ -308,7 +308,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" red="0.97756296399999998" green="1" blue="0.98711127040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Qqq-dV-eP3" firstAttribute="top" secondItem="RPV-0f-nzy" secondAttribute="bottom" constant="8" id="8Kl-1n-oeu"/>
                                             <constraint firstItem="Qqq-dV-eP3" firstAttribute="leading" secondItem="RPV-0f-nzy" secondAttribute="leading" id="LyY-mO-JDt"/>
@@ -323,7 +323,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hs3-ve-FPF" userLabel="NameView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hs3-ve-FPF" userLabel="PhoneView">
                                         <rect key="frame" x="0.0" y="120" width="374" height="100"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxN-3M-miz">
@@ -335,7 +335,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5M-aQ-zlr" userLabel="NameDetailView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5M-aQ-zlr" userLabel="InnerPhoneDetailView">
                                                 <rect key="frame" x="29" y="41" width="331" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tcd-b5-dVg">
@@ -363,7 +363,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" red="0.97756296399999998" green="1" blue="0.98711127040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="jxN-3M-miz" firstAttribute="top" secondItem="hs3-ve-FPF" secondAttribute="top" constant="8" id="EBU-2T-HCQ"/>
                                             <constraint firstItem="g5M-aQ-zlr" firstAttribute="leading" secondItem="jxN-3M-miz" secondAttribute="leading" id="LKR-t8-YQa"/>
@@ -390,7 +390,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfO-Gn-VBO" userLabel="NameDetailView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfO-Gn-VBO" userLabel="InnerUserNameDetailView">
                                                 <rect key="frame" x="29" y="41" width="331" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jp6-Pr-0ZB">
@@ -418,7 +418,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" red="0.97756296399999998" green="1" blue="0.98711127040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Qmp-aa-Z1s"/>
                                             <constraint firstItem="oa8-z0-pPM" firstAttribute="leading" secondItem="3CA-Ey-pWB" secondAttribute="leading" constant="29" id="cVm-Hq-bVA"/>
@@ -447,8 +447,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="InnerPhoneView" destination="g5M-aQ-zlr" id="rB9-JR-zxZ"/>
+                        <outlet property="InnerUsernameView" destination="PfO-Gn-VBO" id="hCw-ZD-GrB"/>
+                        <outlet property="innerNameView" destination="Qqq-dV-eP3" id="d9W-4u-o6z"/>
                         <outlet property="nameLabel" destination="O1y-Ka-aCd" id="aP1-3l-36I"/>
+                        <outlet property="nameView" destination="hs3-ve-FPF" id="3qp-nS-1WF"/>
                         <outlet property="phoneLabel" destination="hVs-b9-aDL" id="Awl-bb-oce"/>
+                        <outlet property="phoneView" destination="Fzn-qh-cz2" id="qtr-X5-nos"/>
+                        <outlet property="userNameView" destination="3CA-Ey-pWB" id="rSC-xV-mV2"/>
                         <outlet property="usernameLabel" destination="5VS-v5-hsy" id="dAi-MZ-df3"/>
                     </connections>
                 </viewController>
@@ -790,9 +796,6 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
