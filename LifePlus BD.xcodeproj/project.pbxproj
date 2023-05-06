@@ -73,9 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				846D71D32A062C7B00E6C7A0 /* DBManager.swift */,
-				846D71C42A062C3500E6C7A0 /* LP DB.xcdatamodeld */,
 				846D71C62A062C3500E6C7A0 /* User+CoreDataProperties.swift */,
 				846D71C72A062C3500E6C7A0 /* User+CoreDataClass.swift */,
+				846D71C42A062C3500E6C7A0 /* LP DB.xcdatamodeld */,
 			);
 			path = Database;
 			sourceTree = "<group>";

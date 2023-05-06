@@ -6,10 +6,10 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
-    
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var logoImageview: UIImageView!
@@ -18,13 +18,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Login"
         logoImageview.layer.cornerRadius = 20
-
-
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     
@@ -42,11 +41,14 @@ class LoginViewController: UIViewController {
         }
         
 
+        SVProgressHUD.show()
         if let user = DBManager.shared.getUserBy(userName: username, password: password) {
             print("logged in successfully")
             UserDefaults.standard.set(username, forKey: "user_name")
             UserDefaults.standard.synchronize()
             let dashboardVC = DashboardViewController.initVC(user: user)
+            
+            SVProgressHUD.dismiss()
             navigationController?.pushViewController(dashboardVC, animated: true)
         } else {
             showAlert(title: "Login Failed", message: "Enter credential correctly!")

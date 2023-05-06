@@ -34,7 +34,7 @@ struct TVShowDetails: Codable {
     let name: String?
     let type: String?
     let language: String?
-//    let genres: [String]?
+    let genres: [String]?
     let rating: Rating?
     let runtime: Float?
     let summary: String?
@@ -48,21 +48,3 @@ struct TVShowDetails: Codable {
         }
     }
 }
-
-/*
-{
-    "name": "The Shop",
-    "type": "Talk Show",
-    "language": "English",
-    "genres": [
-        "Comedy",
-        "Sports"
-    ],
-    "rating": {
-        "average": 2.8
-    },
-    "image": {
-        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/171/428185.jpg",
-        "original": "https://static.tvmaze.com/uploads/images/original_untouched/171/428185.jpg"
-    }
- }*/

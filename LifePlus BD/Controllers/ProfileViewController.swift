@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    var user: User?
+    private var user: User?
     
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var userNameView: UIView!
@@ -25,9 +25,18 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     
     
+    class func initVC(user: User)->ProfileViewController {
+        let board = UIStoryboard(name: "Main", bundle: nil)
+        let vc = board.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        vc.user = user
+        return vc
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "Profile"
+
         nameLabel.text = "\(user?.name ?? "Name not found")"
         usernameLabel.text = "\(user?.userName ?? "Username not found")"
         phoneLabel.text = "\(user?.phone ?? "Phone not found")"
@@ -37,20 +46,13 @@ class ProfileViewController: UIViewController {
         designUIView(outView: phoneView, innerView: innerPhoneView)
     }
     
-    class func initVC(user: User)->ProfileViewController {
-        let board = UIStoryboard(name: "Main", bundle: nil)
-        let vc = board.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        vc.user = user
-        return vc
-    }
-
 }
 
 
 extension ProfileViewController {
-    func designUIView(outView: UIView, innerView: UIView) {
+    private func designUIView(outView: UIView, innerView: UIView) {
         outView.layer.borderWidth = 1
-        outView.layer.borderColor = UIColor.systemGreen.cgColor
+        outView.layer.borderColor = UIColor.lightGray.cgColor
         outView.layer.cornerRadius = 5
         
         innerView.layer.borderWidth = 1

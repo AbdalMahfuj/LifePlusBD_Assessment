@@ -15,6 +15,7 @@ class ContentTableViewCell: UITableViewCell {
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var tvshowImage: UIImageView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         tvshowImage.layer.cornerRadius = 8.0

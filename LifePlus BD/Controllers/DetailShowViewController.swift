@@ -16,12 +16,15 @@ class DetailShowViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
-    
-    var result:TVShow?
+    @IBOutlet weak var genreLabel: UILabel!
+
+    private var result:TVShow?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Details"
+
         setUI(tvshow: result!)
     }
     
@@ -33,15 +36,18 @@ class DetailShowViewController: UIViewController {
     }
     
     
-    func setUI(tvshow: TVShow) {
-        titleLabel.text = "Title: \(tvshow.details?.name ?? "N/A")"
+    private func setUI(tvshow: TVShow) {
+        titleLabel.text = "\(tvshow.details?.name ?? "N/A")"
         ratingLabel.text = "Rating: \(tvshow.details?.rating?.average ?? 0.0)"
         runtimeLabel.text = "Runtime: \(tvshow.details?.runtime ?? 0.0)"
         languageLabel.text = "Language: \(tvshow.details?.language ?? "N/A")"
         
+        let generes  = (tvshow.details?.genres ?? []).joined(separator: ", ")
+        genreLabel.text = "Genres: \(generes)"
+
         if let desc = tvshow.details?.summary, desc.count > 0 {
             if let attributedString = try? NSAttributedString(data: Data(desc.utf8), options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
-                descriptionLabel.text = "Summary: \(attributedString.string)"
+                descriptionLabel.text = "Summary:\n\(attributedString.string)"
             }
         }
        

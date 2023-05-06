@@ -20,6 +20,12 @@ class SignupViewController: UIViewController {
         self.navigationItem.title = "Sign Up"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -27,58 +33,44 @@ class SignupViewController: UIViewController {
     
     @IBAction func registerPressed(_ sender: UIButton) {
         
-        guard let usernameEntered = userNameTF.text, !usernameEntered.isEmpty else {
-            openAlert(message: "Please enter your username")
-            return
-        }
-        guard let nameEntered = nameTF.text, !nameEntered.isEmpty else {
-            openAlert(message: "Please enter your name")
-            return
-        }
-        guard let phoneEntered = phoneTF.text, !phoneEntered.isEmpty else {
-            openAlert(message: "Please enter your phone")
-            return
-        }
-
-        guard let passwordEntered = passwordTF.text, !passwordEntered.isEmpty else {
-            openAlert(message: "Please enter your password")
+        guard let username = userNameTF.text, !username.isEmpty else {
+            showAlert(title: "Caution", message: "Please enter your username")
             return
         }
         
-        guard let name = nameTF.text, let username = userNameTF.text, let phone = phoneTF.text, let password = passwordTF.text else {
-            print("Enter all fields")
+        guard let name = nameTF.text, !name.isEmpty else {
+            showAlert(title: "Caution", message: "Please enter your name")
             return
         }
+        
+        guard let phone = phoneTF.text, !phone.isEmpty else {
+            showAlert(title: "Caution", message: "Please enter your phone")
+            return
+        }
+
+        guard let password = passwordTF.text, !password.isEmpty else {
+            showAlert(title: "Caution", message: "Please enter your password")
+            return
+        }
+        
         let userIserted = DBManager.shared.insertUser(name: name, userName: username, phone: phone, password: password)
-        print("user created: \(userIserted)")
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        navigationController?.pushViewController(vc, animated: true)
+      
+        if userIserted {
+            showAlert(title: "Successful", message: "Your account has been created successfully") {
+                print("user created: \(userIserted)")
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        else {
+            showAlert(title: "Failed", message: "Failed to register your account")
+        }
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
-        navigationItem.setHidesBackButton(true, animated: true)
-    }
-    
+   
     @IBAction func loginPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 }
 
 
-extension SignupViewController {
-    func openAlert(message: String){
-        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okay)
-        present(alertController, animated: true)
-    }
-    
-    func showAlert() {
-        let alertController = UIAlertController(title: nil, message: "User added", preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okay)
-        present(alertController, animated: true)
-    }
-}

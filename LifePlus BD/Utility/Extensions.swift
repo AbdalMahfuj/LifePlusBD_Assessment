@@ -12,11 +12,12 @@ import UIKit
 extension UIViewController {
     
     
-    func showAlert(title: String?, message: String?) {
+    func showAlert(title: String?, message: String?, onTap: (()->())? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
        
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okay)
+        alertController.addAction(UIAlertAction(title: "Okay", style: .default) { _ in
+            onTap?()
+        })
         
         self.present(alertController, animated: true)
     }

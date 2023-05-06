@@ -11,11 +11,10 @@ import SVProgressHUD
 class DashboardViewController: UIViewController {
     
     @IBOutlet weak var tvshowTableView: UITableView!
-    @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var tvSearchbar: UISearchBar!
     
-    var user: User?
-    var results: [TVShow] = []
+    private var user: User?
+    private var results: [TVShow] = []
     
     class func initVC(user: User)->DashboardViewController {
         let board = UIStoryboard(name: "Main", bundle: nil)
@@ -26,12 +25,10 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tvshowTableView.register(UINib(nibName: "ContentTableViewCell", bundle: nil), forCellReuseIdentifier: "ContentTableViewCell")
-        tvSearchbar.delegate = self
-        self.navigationItem.title = "Dashboard"
-        self.profileButton.setTitle(self.user?.userName, for: .normal)
+        setupUI()
+        fetchTVShow(with: "flower")
     }
+        
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,28 +40,57 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    
+    private func setupUI(){
+        tvshowTableView.register(UINib(nibName: "ContentTableViewCell", bundle: nil), forCellReuseIdentifier: "ContentTableViewCell")
+        tvSearchbar.delegate = self
+        self.navigationItem.title = "Dashboard"
         
-        fetchTVShow(with: "flower")
+        let logoutButton = UIButton(type: .custom)
+        logoutButton.frame = .init(origin: .zero, size: .init(width: 60, height: 35))
+        logoutButton.backgroundColor = .clear
+        logoutButton.setTitleColor(.white, for: .normal)
+        logoutButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 16.0)
+        logoutButton.setTitle("Logout", for: .normal)
+        logoutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
+        
+        let leftItem = UIBarButtonItem(customView: logoutButton)
+        self.navigationItem.leftBarButtonItem = leftItem
+        
+        
+        let profileButton = UIButton(type: .custom)
+        profileButton.frame = .init(origin: .zero, size: .init(width: 60, height: 35))
+        profileButton.backgroundColor = .clear
+        profileButton.setTitleColor(.white, for: .normal)
+        profileButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Medium", size: 16.0)
+        profileButton.setTitle("Profile", for: .normal)
+        profileButton.addTarget(self, action: #selector(profilePressed), for: .touchUpInside)
+        
+        let rightItem = UIBarButtonItem(customView: profileButton)
+        self.navigationItem.rightBarButtonItem = rightItem
     }
     
-    
-    @IBAction func viewProfilePressed(_ sender: UIButton) {
-        let vc = ProfileViewController.initVC(user: user!)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-    @IBAction func logoutPressed(_ sender: UIButton) {
+ 
+    @objc
+    private func logoutPressed() {
         showConfirmAlert(title: "Confirmation", message: "Are you sure, you want to logout?", button: "Logout") {
             UserDefaults.standard.removeObject(forKey: "user_name")
             UserDefaults.standard.synchronize()
             self.gotoLogin()
         }
     }
+    
+    @objc
+    private func profilePressed() {
+        let vc = ProfileViewController.initVC(user: user!)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension DashboardViewController {
-    func gotoLogin() {
+    private func gotoLogin() {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         let navVC = UINavigationController(rootViewController: vc)
         (UIApplication.shared.delegate as! AppDelegate).setRootVC(navVC)
@@ -72,7 +98,7 @@ extension DashboardViewController {
 }
 
 
-extension DashboardViewController { // API maintaince
+extension DashboardViewController {
     private func fetchTVShow(with query: String) {
         SVProgressHUD.show()
         let urlString = "https://api.tvmaze.com/search/shows?q=\(query)"
@@ -87,14 +113,12 @@ extension DashboardViewController { // API maintaince
                 if let data = data {
                     do {
                         weakSelf.results  = try JSONDecoder().decode([TVShow].self, from: data)
-                        //                    weakSelf.results = [singleresule]
                         weakSelf.tvshowTableView.reloadData()
                         print(weakSelf.results.count)
                     }
                     catch {
                         print(error)
                     }
-                    print("task ok")
                 }
             }
         }
@@ -102,9 +126,11 @@ extension DashboardViewController { // API maintaince
 }
 
 extension DashboardViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        clear()
+   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searchBar.resignFirstResponder()
+            clear()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -119,7 +145,7 @@ extension DashboardViewController: UISearchBarDelegate {
         }
     }
     
-    func clear() {
+    private func clear() {
         results = []
         tvshowTableView.reloadData()
     }

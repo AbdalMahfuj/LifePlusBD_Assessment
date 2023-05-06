@@ -7,7 +7,6 @@
 
 import UIKit
 
-//
 class SplashViewController: UIViewController {
 
     @IBOutlet weak var splashLabel: UILabel!
@@ -17,13 +16,12 @@ class SplashViewController: UIViewController {
         self.navigationItem.title = "hello"
         splashLabel.text = ""
         printStringWithDelay(string: "⚡️Hey! Welcome To LifePlus BD.")
-   
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
-    ///
+
     private func printStringWithDelay(string: String) {
         var index = string.startIndex
       
@@ -53,7 +51,8 @@ class SplashViewController: UIViewController {
            gotoLogin()
         }   
     }
-    func gotoLogin() {
+    
+    private func gotoLogin() {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
