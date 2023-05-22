@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var logoImageview: UIImageView!
+    @IBOutlet weak var usernameErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,14 @@ class LoginViewController: UIViewController {
     }
     
     
-  
+    @IBAction func UsernameTyped(_ sender: UITextField) {
+        
+    }
+    
+    @IBAction func PasswordTyped(_ sender: UITextField) {
+        
+    }
+    
     @IBAction func loginPressed(_ sender: UIButton) {
         
         guard let username = userNameTF.text, !username.isEmpty else {
