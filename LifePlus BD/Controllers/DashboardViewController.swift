@@ -7,6 +7,8 @@
 
 import UIKit
 import SVProgressHUD
+import ABLoaderView
+import SkeletonView
 
 class DashboardViewController: UIViewController {
     
@@ -15,6 +17,8 @@ class DashboardViewController: UIViewController {
     
     private var user: User?
     private var results: [TVShow] = []
+    private var isPresent: Bool?
+    
     
     class func initVC(user: User)->DashboardViewController {
         let board = UIStoryboard(name: "Main", bundle: nil)
@@ -102,12 +106,15 @@ extension DashboardViewController {
 
 extension DashboardViewController {
     private func fetchTVShow(with query: String) {
-        SVProgressHUD.show()
+       // SVProgressHUD.show()
+        isPresent = true
         let urlString = "https://api.tvmaze.com/search/shows?q=\(query)"
         
         APIManager.shared.callService(urlString: urlString, method: "GET", body: nil) { [weak self] data in
             DispatchQueue.main.async {
-                SVProgressHUD.dismiss()
+                
+             //   SVProgressHUD.dismiss()
+                self!.isPresent = false
                 
                 guard let weakSelf = self else {
                     return
@@ -154,21 +161,33 @@ extension DashboardViewController: UISearchBarDelegate {
 }
 
 
-extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
+extension DashboardViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+       return "ContentTableViewCell"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
+        return results.isEmpty ? 5 : results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContentTableViewCell", for: indexPath) as! ContentTableViewCell
-        cell.setUI(tvshow: results[indexPath.row])
+        
+        if !results.isEmpty {
+            cell.hideSkeletonAnimatio()
+            cell.setUI(tvshow: results[indexPath.row])
+        }
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let detailShowVC = DetailShowViewController.initVC(result: results[indexPath.row])
-        self.navigationController?.pushViewController(detailShowVC, animated: true)
+        if !results.isEmpty {
+            let detailShowVC = DetailShowViewController.initVC(result: results[indexPath.row])
+            self.navigationController?.pushViewController(detailShowVC, animated: true)
+        }
+        
     }
 }

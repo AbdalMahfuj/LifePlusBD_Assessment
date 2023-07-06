@@ -7,9 +7,12 @@
 
 import UIKit
 import SDWebImage
+import SkeletonView
+
 
 class ContentTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var fullView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var runtimeLabel: UILabel!
@@ -18,8 +21,23 @@ class ContentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+       // fullView.showAnimatedSkeleton()
+        nameLabel.showAnimatedSkeleton()
+        scoreLabel.showAnimatedSkeleton()
+        runtimeLabel.showAnimatedSkeleton()
+        tvshowImage.showAnimatedSkeleton()
+        
         tvshowImage.layer.cornerRadius = 8.0
         tvshowImage.clipsToBounds = true
+    }
+    
+    func hideSkeletonAnimatio() {
+       // fullView.hideSkeleton()
+        nameLabel.hideSkeleton()
+        scoreLabel.hideSkeleton()
+        runtimeLabel.hideSkeleton()
+        tvshowImage.hideSkeleton()
     }
     
     func setUI(tvshow: TVShow) {

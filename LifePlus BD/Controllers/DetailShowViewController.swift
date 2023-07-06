@@ -47,7 +47,7 @@ class DetailShowViewController: UIViewController {
 
         if let desc = tvshow.details?.summary, desc.count > 0 {
             if let attributedString = try? NSAttributedString(data: Data(desc.utf8), options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
-                descriptionLabel.text = "Summary:\n\(attributedString.string)"
+                descriptionLabel.text = "\(attributedString.string)"
             }
         }
        
