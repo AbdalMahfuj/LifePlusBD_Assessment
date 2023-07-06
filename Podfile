@@ -6,7 +6,6 @@ target 'LifePlus BD' do
   use_frameworks!
 
   # Pods for LifePlus BD
-	pod 'ABLoaderView'
 	pod "SkeletonView"
 
 end

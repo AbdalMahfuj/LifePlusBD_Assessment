@@ -1,20 +1,16 @@
 PODS:
-  - ABLoaderView (1.0.2)
   - SkeletonView (1.30.4)
 
 DEPENDENCIES:
-  - ABLoaderView
   - SkeletonView
 
 SPEC REPOS:
   trunk:
-    - ABLoaderView
     - SkeletonView
 
 SPEC CHECKSUMS:
-  ABLoaderView: 389caecbd6f855bfcf3c1c0d80fb14ce4ab9da2c
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: c2ce29b4fa7e701efee9ca28b004a53c364345bd
+PODFILE CHECKSUM: 3565923fec1934c5d0f54f1ade7e9a5900bf6ba6
 
 COCOAPODS: 1.12.1
